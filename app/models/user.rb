@@ -1,7 +1,8 @@
-koclass User < ActiveRecord::Base
+class User < ActiveRecord::Base
 	has_many :posts
-	#validation
-	REGEX_EMAIL = /\A([\w|\d]\.)+@(yahoo.com|gmail.com)\Z/i
+	has_many :comments 
+	has_many :sub_comments
+	REGEX_EMAIL = /\A([\w+|\d+]\.?)+@(yahoo.com|gmail.com)\Z/i
 	validates :email, presence: true,
 						confirmation: true,
 						format: {with: REGEX_EMAIL, message:'invaild form pls online @yahoo.com or @gmail.com'},
