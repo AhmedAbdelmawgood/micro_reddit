@@ -1,0 +1,9 @@
+<h1>Form for creating Posts</h1>
+<%if @post.errors.any? %>
+	<%@post.errors.full_messages.each do |msg|%>
+	<div class="error">
+		<p><%=msg%></p>
+	</div>
+	<%end%>
+<%end%>
+<%= render 'form'%>

@@ -1,5 +1,4 @@
 <%names = ['Sports', 'Economics' , 'Politics', 'General', 'education']%>
-<div class="container" style='margin-top:100px;'>
 	<div class="row">
 		<%4.times do |x|%>
 		<div class="col-lg-4 col-md-4 col-sm-6">
@@ -15,7 +14,7 @@
 			<tbody class='table-hover'>
 			<% @collection[x].each do |x| %>
 			<tr>
-				<td><%= x.title %></td>
+				<td><%=link_to x.title, post_path(x) %></td>
 			</tr>	
 			<%end%>
 			</tbody>
@@ -23,4 +22,3 @@
 		</div>
 	<%end%>
 	</div>
-</div>
