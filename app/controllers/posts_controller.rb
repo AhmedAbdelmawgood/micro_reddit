@@ -1,12 +1,12 @@
 class PostsController < ApplicationController
 	def new 
-		@post = Post.new
 		categories
+		@post = Post.new
 	end
 	def create 
 		@post = Post.new(param_white)
 		if @post.save 
-			render text: 'succeed'
+			redirect_to post_path(@post)
 		else
 			categories
 			render :new
@@ -34,6 +34,6 @@ class PostsController < ApplicationController
 		@category = Category.all.map{|cat| [cat.name,cat.id]}
 	end
 	def param_white
-		params.require(:post).permit(:title, :body, :user_id, :categorie_id)
+		params.require(:post).permit(:title, :body, :user_id, :category_id)
 	end
 end
